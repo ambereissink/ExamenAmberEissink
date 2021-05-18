@@ -1,0 +1,37 @@
+#
+## Alias OBJ Material File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+
+newmtl brandalarm_wit
+Ka 0.000000 0.000000 0.000000
+Kd 0.956863 0.956863 0.956863
+Ks 0.330000 0.330000 0.330000
+
+newmtl glas_brandalarm
+Ka 0.000000 0.000000 0.000000
+Kd 0.572549 0.635294 0.745098
+Ks 0.330000 0.330000 0.330000
+d 0.210000
+
+newmtl brandalarm_pull_hook
+Ka 0.000000 0.000000 0.000000
+Kd 0.952941 0.945098 0.945098
+Ks 0.330000 0.330000 0.330000
+map_Kd brandalarm paal/brandalarm_pull_hook.png
+
+newmtl zwart_paal_brandalarm
+Ka 0.000000 0.000000 0.000000
+Kd 0.176471 0.023529 0.000000
+Ks 0.330000 0.330000 0.330000
+
+newmtl brandalarm_for_fire
+Ka 0.000000 0.000000 0.000000
+Kd 0.647059 0.011765 0.011765
+Ks 0.330000 0.330000 0.330000
+map_Kd brandalarm paal/brandalarm_for_fire.png
+
+newmtl brandalarm_rood
+Ka 0.000000 0.000000 0.000000
+Kd 0.647059 0.000000 0.000000
+Ks 0.330000 0.330000 0.330000
+
