@@ -6,8 +6,10 @@ using TMPro;
 
 public class WindDirection : MonoBehaviour
 {
+    public float graden;
     public TextMeshProUGUI textMesh;
     public RectTransform windIndicator;
+
 
     void Start()
     {
@@ -24,7 +26,7 @@ public class WindDirection : MonoBehaviour
     public void W_Direction()
     {
 
-        var graden = Random.Range(1,360);
+        graden = Random.Range(1,360);
         Debug.Log("Wind Direction = " + graden);
         textMesh.text = graden.ToString() + " °";
         windIndicator.rotation = Quaternion.Euler(0, 0, -graden);

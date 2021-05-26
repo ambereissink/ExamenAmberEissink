@@ -14,12 +14,6 @@ public class Hideouts : MonoBehaviour
     public List<GameObject> hideOuts = new List<GameObject>();
     private void Start()
     {
-        
-        hideOuts.AddRange(GameObject.FindGameObjectsWithTag("Hideout"));
-        foreach (var x in hideOuts)
-        {
-            Debug.Log(x.ToString());
-        }
 
     }
     private void Update()
