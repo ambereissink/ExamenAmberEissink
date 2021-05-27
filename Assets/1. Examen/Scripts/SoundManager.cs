@@ -22,10 +22,6 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        //Play("Theme");
-    }
 
     // Update is called once per frame
     public void Play(string name)
