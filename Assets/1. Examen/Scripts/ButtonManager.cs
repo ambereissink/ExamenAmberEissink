@@ -8,6 +8,7 @@ public class ButtonManager : MonoBehaviour
     Hideouts hideOuts;
     ScoreManager scoreManager;
     SoundManager soundManager;
+    Timer timer;
     
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,8 @@ public class ButtonManager : MonoBehaviour
         alarmManager = FindObjectOfType<AlarmManager>();
         hideOuts = FindObjectOfType<Hideouts>();
         scoreManager = FindObjectOfType<ScoreManager>();
+        timer = FindObjectOfType<Timer>();
+
     }
 
     public void PlayMusicButton()
@@ -38,6 +41,7 @@ public class ButtonManager : MonoBehaviour
             Debug.Log("These are the correct choices: " + scoreManager.goodPoints);
             alarmManager.GenerateAlarm();
             soundManager.Play("GoodSoundEffect");
+            timer.timeValue = 180;
 
         }
         else

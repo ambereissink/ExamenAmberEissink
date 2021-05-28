@@ -10,11 +10,15 @@ public class Timer : MonoBehaviour
     public TMP_Text timerText;
     ScoreManager scoreManager;
     Hideouts hideOuts;
+    AlarmManager alarmManager;
+    SoundManager soundManager;
 
     private void Start()
     {
+        alarmManager = FindObjectOfType<AlarmManager>();
         scoreManager = FindObjectOfType<ScoreManager>();
         hideOuts = FindObjectOfType<Hideouts>();
+        soundManager = FindObjectOfType<SoundManager>();
     }
     void Update()
     {
@@ -29,13 +33,16 @@ public class Timer : MonoBehaviour
         }
         else
         {
+            //reset timer
             timeValue = 180;
             //say something about how the player failed
             hideOuts.dialogueText.text = "De tijd is op! Klik op het geluids-icoon voor een nieuw alarm.";
             //generate new alarm
+            alarmManager.GenerateAlarm();
             //add one bad point
-            //reset timer
+            scoreManager.badPoints++;
             //watch out cus its doing some weird shit rn still counting from 180 regardless if i put it to 10
+            soundManager.Play("BadSoundEffect");
         }
     }
      void DisplayTime(float timeToDisplay)
