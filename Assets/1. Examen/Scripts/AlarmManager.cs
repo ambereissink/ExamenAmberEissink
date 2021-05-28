@@ -66,7 +66,7 @@ public class AlarmManager : MonoBehaviour
             }
         }
     }
-    void GenerateAlarm()
+    public void GenerateAlarm()
     {
         //generates random numbers for the first and third spot, the middle staying the same
         System.Random rnd = new System.Random();

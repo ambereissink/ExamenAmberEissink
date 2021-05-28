@@ -11,7 +11,7 @@ public class Hideouts : MonoBehaviour
 {
     public TMP_Text dialogueText;
 
-    public List<GameObject> hideOuts = new List<GameObject>();
+    //public List<GameObject> hideOuts = new List<GameObject>();
     private void Start()
     {
 

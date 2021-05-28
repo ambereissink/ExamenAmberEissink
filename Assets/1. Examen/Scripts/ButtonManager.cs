@@ -7,19 +7,15 @@ public class ButtonManager : MonoBehaviour
     AlarmManager alarmManager;
     Hideouts hideOuts;
     ScoreManager scoreManager;
+    SoundManager soundManager;
     
     // Start is called before the first frame update
     void Start()
     {
+        soundManager = FindObjectOfType<SoundManager>();
         alarmManager = FindObjectOfType<AlarmManager>();
         hideOuts = FindObjectOfType<Hideouts>();
         scoreManager = FindObjectOfType<ScoreManager>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void PlayMusicButton()
@@ -28,15 +24,11 @@ public class ButtonManager : MonoBehaviour
         alarmManager.playSound = true;
         //enable alarmbutton UI 
     }
-    public void AlarmButton()
-    {
-
-    }
     public void ClickSound()
     {
-        FindObjectOfType<SoundManager>().Play("Click");
+        soundManager.Play("Click");
     }
-    public void AlarmQuestion(GameObject other) //allows you to attach a gameobject called other
+    public void AlarmButton(GameObject other) //allows you to attach a gameobject called other
     {
         
         if (alarmManager.currentAlarm.ToString() == other.name)  //checks if current alarm matches the name of other gameobject
@@ -44,12 +36,16 @@ public class ButtonManager : MonoBehaviour
             hideOuts.dialogueText.text = "Dit klopt!";
             scoreManager.goodPoints++;
             Debug.Log("These are the correct choices: " + scoreManager.goodPoints);
+            alarmManager.GenerateAlarm();
+            soundManager.Play("GoodSoundEffect");
+
         }
         else
         {
             hideOuts.dialogueText.text = "Dit is niet correct.";
             scoreManager.badPoints++;
             Debug.Log("These are the wrong choices: " + scoreManager.badPoints);
+            soundManager.Play("BadSoundEffect");
         }
     }
 
