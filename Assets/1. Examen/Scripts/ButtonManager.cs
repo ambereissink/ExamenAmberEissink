@@ -36,7 +36,7 @@ public class ButtonManager : MonoBehaviour
         
         if (alarmManager.currentAlarm.ToString() == other.name)  //checks if current alarm matches the name of other gameobject
         {
-            hideOuts.dialogueText.text = "Dit klopt!";
+            hideOuts.dialogueText.text = "Dit klopt! Klik weer op de alarmknop voor het nieuwe alarm.";
             scoreManager.goodPoints++;
             Debug.Log("These are the correct choices: " + scoreManager.goodPoints);
             alarmManager.GenerateAlarm();
