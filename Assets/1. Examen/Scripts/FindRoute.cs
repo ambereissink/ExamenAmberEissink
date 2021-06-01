@@ -1,62 +1,70 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class FindRoute : MonoBehaviour
 {
-    public int currentGraden;
+    public float currentGraden => WD.graden; //the => basically makes it so when you call currentGraden instead it calls WD.graden.
     public WindDirection WD;
-    // Start is called before the first frame update
+
+
+    public Hideout correctHideout;
+
     void Start()
     {
-        WindDirection WD = gameObject.GetComponent<WindDirection>();
-        //WD.graden = currentGraden;
-        FindClosestHideout();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
+        SetClosest(); //Gets called and sets correctHideout.
+
 
     }
 
-    void FindClosestHideout()
+    void SetClosest() 
     {
-        float distanceToClosestHideout = Mathf.Infinity;
-        Hideouts closestHideout = null;
-        Hideouts[] allHideOuts = GameObject.FindObjectsOfType<Hideouts>();
-
-        foreach (Hideouts currentHideout in allHideOuts)
+        if (FindObjectsOfType<Hideout>().Length == 0) //If there are no hideouts, leave method.
         {
-            float distanceToHideout = (currentHideout.transform.position - this.transform.position).sqrMagnitude;
-            if (distanceToHideout < distanceToClosestHideout)
+            return;
+        } 
+
+        List<Hideout> correctHideouts = new List<Hideout>(); //Make a list for new hideouts
+        correctHideouts = WindDirectionTest();                   //Set list equal to the wind direction test. comment this out if you dont want wind direction.
+        if (correctHideouts.Count == 0)
+        {                      //if there is no correct hideout in wind correction test
+            correctHideouts = FindObjectsOfType<Hideout>().ToList();    //reset list to all hideouts
+        }
+        correctHideouts.Sort((h1, h2) => DistanceCheck(h1, h2)); //Sorts distance. Closest is at 0 in the list the further away they get, the further down the list.
+
+        correctHideout = correctHideouts[0];        //set closet to first in the list.
+
+
+        Debug.Log("The Correct Hideout is :" + correctHideout);
+    }
+
+
+    List<Hideout> WindDirectionTest()
+    {
+        List<Hideout> correctInWindrichting = new List<Hideout>();
+        foreach (Hideout h in FindObjectsOfType<Hideout>())
+        {
+            Vector3 dir = h.transform.position - transform.position; //Get the direction between 2 objects
+            float angle = Mathf.Atan2(dir.z, dir.x) * Mathf.Rad2Deg; //atan2 converts a vector direction into radians which we convert to degrees with Rad2Deg
+            angle -= 90;  //-90 degrees. because the visual is offset with 90 degrees.
+
+         
+            float anglediff = (currentGraden - angle + 180 + 360) % 360 - 180;    //Normalizes angle to always be between 0 and 360 and then shifts it to -180 to 180
+
+            if (anglediff <= 90 && anglediff >= -90)
             {
-                distanceToClosestHideout = distanceToHideout;
-                closestHideout = currentHideout;
+                correctInWindrichting.Add(h);   //if distance is within 90 degrees on either side (so 180 degrees) its within the wind direction
             }
         }
-        Debug.Log("Dit is de closest hideout: " + closestHideout);
+        return correctInWindrichting;
     }
 
-    void WindCheck()
+
+    int DistanceCheck(Hideout h1, Hideout h2)
     {
-        /*
-        if (currentGraden >= 1 && currentGraden <= 90)
-        {
-            Debug.Log("Dit is NE");
-        }
-        else if (currentGraden >= 91 && currentGraden <= 180)
-        {
-            Debug.Log("Dit is SE");
-        }
-        else if (currentGraden >= 181 && currentGraden <= 270)
-        {
-            Debug.Log("Dit is SW");
-        }
-        else if (currentGraden >= 271 && currentGraden <= 360)
-        {
-            Debug.Log("Dit is NW");
-        }
-        */
+        //Returns which distance is the closest
+        return Vector2.Distance(h1.transform.position, transform.position).CompareTo(Vector2.Distance(h2.transform.position, transform.position));
     }
+
 }

@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour
     public float timeValue = 180;
     public TMP_Text timerText;
     ScoreManager scoreManager;
-    Hideouts hideOuts;
+    Hideout hideOuts;
     AlarmManager alarmManager;
     SoundManager soundManager;
 
@@ -17,7 +17,7 @@ public class Timer : MonoBehaviour
     {
         alarmManager = FindObjectOfType<AlarmManager>();
         scoreManager = FindObjectOfType<ScoreManager>();
-        hideOuts = FindObjectOfType<Hideouts>();
+        hideOuts = FindObjectOfType<Hideout>();
         soundManager = FindObjectOfType<SoundManager>();
     }
     void Update()

@@ -5,7 +5,7 @@ using TMPro;
 public class ButtonManager : MonoBehaviour
 {
     AlarmManager alarmManager;
-    Hideouts hideOuts;
+    Hideout hideOuts;
     ScoreManager scoreManager;
     SoundManager soundManager;
     Timer timer;
@@ -15,7 +15,7 @@ public class ButtonManager : MonoBehaviour
     {
         soundManager = FindObjectOfType<SoundManager>();
         alarmManager = FindObjectOfType<AlarmManager>();
-        hideOuts = FindObjectOfType<Hideouts>();
+        hideOuts = FindObjectOfType<Hideout>();
         scoreManager = FindObjectOfType<ScoreManager>();
         timer = FindObjectOfType<Timer>();
 

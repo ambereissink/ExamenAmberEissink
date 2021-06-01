@@ -28,8 +28,8 @@ public class WindDirection : MonoBehaviour
 
         graden = Random.Range(1,360);
         Debug.Log("Wind Direction = " + graden);
-        textMesh.text = graden.ToString() + " °";
-        windIndicator.rotation = Quaternion.Euler(0, 0, -graden);
+        textMesh.text = (360-graden).ToString() + " °";
+        windIndicator.rotation = Quaternion.Euler(0, 0, graden);
     }
 
 }

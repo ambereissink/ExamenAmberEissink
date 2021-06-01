@@ -11,7 +11,7 @@ public class ScoreManager : MonoBehaviour
     public int badPoints = 0;
     public TMP_Text goodPointsText;
     public TMP_Text badPointsText;
-    Hideouts hideOuts;
+    Hideout hideOuts;
     Button[] alarmButtons;
     public GameObject alarmBellen;
     public GameObject alarmQuestion;
@@ -19,7 +19,7 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        hideOuts = FindObjectOfType<Hideouts>();
+        hideOuts = FindObjectOfType<Hideout>();
         alarmButtons = alarmBellen.GetComponentsInChildren<Button>();
         buttonOn = true;
     }
