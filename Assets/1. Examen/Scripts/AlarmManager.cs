@@ -32,18 +32,19 @@ public class AlarmManager : MonoBehaviour
     void Update()
     {
         if (playSound)
-        { 
+        {
             //increments timer
             timer += Time.deltaTime;
-            if(timer >= resetTimer)
+            if (timer >= resetTimer)
             {
                 timer = 0;
                 counter++;
                 if (counter <= Alarms[arrayCounter])
-                    //if current counter is smaller or equal to the amount of sounds to play then play sound
+                //if current counter is smaller or equal to the amount of sounds to play then play sound
                 {
-                    if (arrayCounter!= 1) { //if not middle sound play horn else play bell
-                    FindObjectOfType<SoundManager>().Play("Horn");
+                    if (arrayCounter != 1)
+                    { //if not middle sound play horn else play bell
+                        FindObjectOfType<SoundManager>().Play("Horn");
                     }
                     else
                     {
@@ -57,7 +58,7 @@ public class AlarmManager : MonoBehaviour
                     arrayCounter++;
                     counter = 0;
                     timer = 0;
-                    if(arrayCounter >= 3) //if array counter is too big, disable sound
+                    if (arrayCounter >= 3) //if array counter is too big, disable sound
                     {
                         playSound = false;
                         arrayCounter = 0;
@@ -71,7 +72,7 @@ public class AlarmManager : MonoBehaviour
         //generates random numbers for the first and third spot, the middle staying the same
         System.Random rnd = new System.Random();
         Alarms[0] = rnd.Next(1, 4);  // creates a number between 1 and 3
-        Alarms[2]= rnd.Next(1, 4);
+        Alarms[2] = rnd.Next(1, 4);
 
         //adding the two randomized number plus the one static in the middle
         currentAlarm = int.Parse(Alarms[0].ToString() + Alarms[1] + Alarms[2].ToString());
@@ -82,6 +83,7 @@ public class AlarmManager : MonoBehaviour
     {
         playSound = true;
     }
+
 }
 
 

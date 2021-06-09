@@ -16,6 +16,13 @@ TagManager:
   - 312
   - 313
   - AlarmButton
+  - Shelter1
+  - Shelter2
+  - Shelter3
+  - Shelter4
+  - Shelter5
+  - Shelter6
+  - Do Nothing
   layers:
   - Default
   - TransparentFX

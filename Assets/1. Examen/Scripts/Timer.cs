@@ -33,16 +33,20 @@ public class Timer : MonoBehaviour
         }
         else
         {
+            if (scoreManager.certificateOn == false) //makes sure the timer doesn't work when the certificate panel is displayed
+            { 
             //reset timer
             timeValue = 180;
             //say something about how the player failed
             hideOuts.dialogueText.text = "De tijd is op! Klik op het geluids-icoon voor een nieuw alarm.";
+            soundManager.Play("Writing");
             //generate new alarm
             alarmManager.GenerateAlarm();
             //add one bad point
             scoreManager.badPoints++;
             //watch out cus its doing some weird shit rn still counting from 180 regardless if i put it to 10
             soundManager.Play("BadSoundEffect");
+            }
         }
     }
      void DisplayTime(float timeToDisplay)
@@ -52,7 +56,7 @@ public class Timer : MonoBehaviour
             timeToDisplay = 0;
         }
 
-        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60); //displays minutes and seconds
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }

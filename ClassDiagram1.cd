@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AlarmManager">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQRgAAAACAAAAAAAgEAAAEAAAAIAAEAQABAAAAAAgA=</HashCode>
+      <FileName>Assets\1. Examen\Scripts\AlarmManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ButtonManager">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAkAAAAEACAAAAAAIAAAAAAABAAAAAAQAA=</HashCode>
+      <FileName>Assets\1. Examen\Scripts\ButtonManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="soundManager" />
+      <Field Name="timer" />
+      <Field Name="scoreManager" />
+      <Field Name="hideOuts" />
+      <Field Name="alarmManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="FindRoute">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAgAAAAAAAAAAAIACBAAACAAAgAAAAAA=</HashCode>
+      <FileName>Assets\1. Examen\Scripts\FindRoute.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="correctHideout" />
+      <Field Name="WD" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Hideout">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAgACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\1. Examen\Scripts\Hideout.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerLocation">
+    <Position X="0.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Assets\1. Examen\Scripts\PlayerLocation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScoreManager">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAQACAAAACABAAAAAABQgABEAAIABEAAAAAEAA=</HashCode>
+      <FileName>Assets\1. Examen\Scripts\ScoreManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="alarmButtons" />
+      <Field Name="badPointsText" />
+      <Field Name="goodPointsText" />
+      <Field Name="hideOuts" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Sound">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAIAAAAAAAAAAAAEAAAgAAAAAAACAAA=</HashCode>
+      <FileName>Assets\1. Examen\Scripts\Sound.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="clip" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SoundManager">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAgAAAAAAAAEA=</HashCode>
+      <FileName>Assets\1. Examen\Scripts\SoundManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Timer">
+    <Position X="4" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQAAAAAACBggAAAAACQAAAAAAAAAAAAABAAAAAAQAA=</HashCode>
+      <FileName>Assets\1. Examen\Scripts\Timer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="alarmManager" />
+      <Field Name="hideOuts" />
+      <Field Name="scoreManager" />
+      <Field Name="soundManager" />
+      <Field Name="timerText" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="WindDirection">
+    <Position X="8" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACIAAAAAAIACAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\1. Examen\Scripts\WindDirection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TMPro.TMP_Text" Collapsed="true">
+    <Position X="11.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="UnityEngine.AudioClip" Collapsed="true">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="UnityEngine.UI.Button" Collapsed="true">
+    <Position X="13.25" Y="3" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -30,7 +30,7 @@ public class Hideout : MonoBehaviour
                 {
 
                     Debug.Log("This is " + hit.transform.name);
-                    dialogueText.text = "This is " + hit.transform.name;
+                    dialogueText.text = "Dit is " + hit.transform.name;
                 }
             }
 
