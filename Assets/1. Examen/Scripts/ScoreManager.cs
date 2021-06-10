@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class ScoreManager : MonoBehaviour
 {
     
     SoundManager soundManager;
     bool buttonOn;
     int lastGoodPoints = 0;
+    int lastBadPoints = 0;
     public int goodPoints = 0;
     public int badPoints = 0;
     public TMP_Text goodPointsText;
@@ -21,6 +22,8 @@ public class ScoreManager : MonoBehaviour
     public GameObject alarmQuestion;
     public GameObject shelterQuestion;
     public TMP_Text[] alarmText;
+    public GameObject tutorialPanel;
+    public bool tutorialOn = true;
     bool textOn;
     public bool certificateOn;
 
@@ -28,12 +31,13 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         soundManager = FindObjectOfType<SoundManager>();
-
+        
         hideOuts = FindObjectOfType<Hideout>();
         alarmButtons = alarmBellen.GetComponentsInChildren<Button>();
         alarmText = alarmBellen.GetComponentsInChildren<TMP_Text>();
         buttonOn = true;
         textOn = false;
+        tutorialPanel.SetActive(tutorialOn);
         certificatePanel.SetActive(false);
         shelterQuestion.SetActive(false);
         alarmQuestion.SetActive(true);
@@ -44,12 +48,17 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K)) goodPoints++;
+       // if (Input.GetKeyDown(KeyCode.K)) goodPoints++;
 
         if (lastGoodPoints != goodPoints)
         {
             NextQuestion();
             lastGoodPoints = goodPoints;
+        }
+        if(lastBadPoints != badPoints)
+        {
+            lastBadPoints = badPoints;
+            soundManager.Play("BadSoundEffect");
         }
         goodPointsText.text = goodPoints.ToString();
         badPointsText.text = badPoints.ToString();
@@ -58,8 +67,11 @@ public class ScoreManager : MonoBehaviour
     {
         FindObjectOfType<PlayerLocation>()?.SetRandomPosition();
         FindObjectOfType<AlarmManager>()?.GenerateAlarm();
+        FindObjectOfType<AlarmManager>()?.FullAudioReset();
+        soundManager.Play("GoodSoundEffect");
         if (goodPoints >= 5)
         {
+            
             //disable this question object UI
             alarmQuestion.SetActive(false);
             //enable next question object UI
@@ -95,12 +107,17 @@ public class ScoreManager : MonoBehaviour
         {
             //geef certificaat
             certificatePanel.SetActive(true);
-            
+            certificateOn = true;
             //stop timer
         }
         else
         {
             certificatePanel.SetActive(false);
+        }
+        if (goodPoints + badPoints >= 50)
+        {
+            //if the good points and badpoints together are 50 or more, send to failscene
+            SceneManager.LoadScene("FailScene");
         }
     }
     void DisableButtons()

@@ -56,7 +56,7 @@ public class FindRoute : MonoBehaviour
                 isPlayerInRange = true;
             }
         }
-        if (isPlayerInRange)
+        if (isPlayerInRange || alarm.currentAlarm == 0)
         {
             List<Hideout> correctHideouts = new List<Hideout>(); //Make a list for new hideouts
             correctHideouts = WindDirectionTest(hideouts);                   //Set list equal to the wind direction test. comment this out if you dont want wind direction.

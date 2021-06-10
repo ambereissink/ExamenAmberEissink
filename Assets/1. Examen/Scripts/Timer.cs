@@ -22,8 +22,11 @@ public class Timer : MonoBehaviour
     }
     void Update()
     {
+        if (scoreManager.certificateOn == true || scoreManager.tutorialOn == false) 
+        { 
         CountDown();
         DisplayTime(timeValue);
+        }
     }
     void CountDown()
     {
@@ -33,8 +36,7 @@ public class Timer : MonoBehaviour
         }
         else
         {
-            if (scoreManager.certificateOn == false) //makes sure the timer doesn't work when the certificate panel is displayed
-            { 
+            
             //reset timer
             timeValue = 180;
             //say something about how the player failed
@@ -44,9 +46,8 @@ public class Timer : MonoBehaviour
             alarmManager.GenerateAlarm();
             //add one bad point
             scoreManager.badPoints++;
-            //watch out cus its doing some weird shit rn still counting from 180 regardless if i put it to 10
             soundManager.Play("BadSoundEffect");
-            }
+            
         }
     }
      void DisplayTime(float timeToDisplay)

@@ -31,7 +31,7 @@ public class AlarmManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playSound)
+        if (playSound && currentAlarm != 0)
         {
             //increments timer
             timer += Time.deltaTime;
@@ -58,6 +58,27 @@ public class AlarmManager : MonoBehaviour
                 }
             }
         }
+        else if (playSound && currentAlarm == 0)
+        {
+            timer += Time.deltaTime;
+            if (timer >= resetTimer)
+            {
+                counter++;
+                timer = 0;
+                FindObjectOfType<SoundManager>().Play("Horn");
+                if (counter >= 4)
+                {
+                    counter = 0;
+                    timer -= resetTimer;
+                    arrayCounter++;
+                }
+                if(arrayCounter >= 10)
+                {
+                    FullAudioReset();
+                }
+              
+            }
+        }
     }
 
     public void FullAudioReset()
@@ -81,12 +102,24 @@ public class AlarmManager : MonoBehaviour
     public void GenerateAlarm()
     {
         //generates random numbers for the first and third spot, the middle staying the same
+
         System.Random rnd = new System.Random();
-        Alarms[0] = rnd.Next(1, 4);  // creates a number between 1 and 3
-        Alarms[2] = rnd.Next(1, 4);
+        
+
+        if (rnd.Next(0, 10) == 0)
+        {
+            currentAlarm = 0;
+        }
+        else
+        {
+            Alarms[0] = rnd.Next(1, 4);  // creates a number between 1 and 3
+            Alarms[2] = rnd.Next(1, 4);
+            currentAlarm = int.Parse(Alarms[0].ToString() + Alarms[1] + Alarms[2].ToString());
+        }
+
 
         //adding the two randomized number plus the one static in the middle
-        currentAlarm = int.Parse(Alarms[0].ToString() + Alarms[1] + Alarms[2].ToString());
+        
         Debug.Log(currentAlarm);
 
     }

@@ -12,7 +12,7 @@ public class ButtonManager : MonoBehaviour
     SoundManager soundManager;
     Timer timer;
     public GameObject infoPanel;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,27 +38,39 @@ public class ButtonManager : MonoBehaviour
     }
     public void AlarmButton(GameObject other) //allows you to attach a gameobject called other
     {
-        
-        if (alarmManager.currentAlarm.ToString() == other.name)  //checks if current alarm matches the name of other gameobject
+        if (alarmManager.currentAlarm != 0)
+        {
+            if (alarmManager.currentAlarm.ToString() == other.name || alarmManager.currentAlarm == 0)  //checks if current alarm matches the name of other gameobject
+            {
+                hideOuts.dialogueText.text = "Dit klopt! Klik weer op de alarmknop voor het nieuwe alarm.";
+                soundManager.Play("Writing");
+                scoreManager.goodPoints++;
+                Debug.Log("These are the correct choices: " + scoreManager.goodPoints);
+
+                soundManager.Play("GoodSoundEffect");
+                timer.timeValue = 180;
+                alarmManager.FullAudioReset();
+                //werkt niet want dan speelt hij de eerste van de volgende niet af
+            }
+            else
+            {
+                hideOuts.dialogueText.text = "Dit is niet correct.";
+                soundManager.Play("Writing");
+                scoreManager.badPoints++;
+                Debug.Log("These are the wrong choices: " + scoreManager.badPoints);
+                soundManager.Play("BadSoundEffect");
+            }
+        }
+        else 
         {
             hideOuts.dialogueText.text = "Dit klopt! Klik weer op de alarmknop voor het nieuwe alarm.";
             soundManager.Play("Writing");
             scoreManager.goodPoints++;
-            Debug.Log("These are the correct choices: " + scoreManager.goodPoints);
-            
             soundManager.Play("GoodSoundEffect");
             timer.timeValue = 180;
             alarmManager.FullAudioReset();
-            //werkt niet want dan speelt hij de eerste van de volgende niet af
         }
-        else
-        {
-            hideOuts.dialogueText.text = "Dit is niet correct.";
-            soundManager.Play("Writing");
-            scoreManager.badPoints++;
-            Debug.Log("These are the wrong choices: " + scoreManager.badPoints);
-            soundManager.Play("BadSoundEffect");
-        }
+        
     }
     public void InfoButtonOpen()
     {
@@ -67,6 +79,12 @@ public class ButtonManager : MonoBehaviour
     public void InfoButtonClose()
     {
         infoPanel.SetActive(false);
+    }
+
+    public void TutorialButtonClose()
+    {
+        scoreManager.tutorialPanel.SetActive(false);
+        scoreManager.tutorialOn = false ;
     }
     public void ChangeSceneStart()
     {
