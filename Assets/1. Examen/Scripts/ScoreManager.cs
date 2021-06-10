@@ -63,7 +63,7 @@ public class ScoreManager : MonoBehaviour
         goodPointsText.text = goodPoints.ToString();
         badPointsText.text = badPoints.ToString();
     }
-    void NextQuestion() 
+    public void NextQuestion() 
     {
         FindObjectOfType<PlayerLocation>()?.SetRandomPosition();
         FindObjectOfType<AlarmManager>()?.GenerateAlarm();

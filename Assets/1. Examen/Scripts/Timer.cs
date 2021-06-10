@@ -43,7 +43,7 @@ public class Timer : MonoBehaviour
             hideOuts.dialogueText.text = "De tijd is op! Klik op het geluids-icoon voor een nieuw alarm.";
             soundManager.Play("Writing");
             //generate new alarm
-            alarmManager.GenerateAlarm();
+            scoreManager.NextQuestion();
             //add one bad point
             scoreManager.badPoints++;
             soundManager.Play("BadSoundEffect");
