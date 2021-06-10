@@ -13,7 +13,7 @@ public class WindDirection : MonoBehaviour
 
     void Start()
     {
-        W_Direction();
+        ChangeDirection();
         
     }
 
@@ -23,7 +23,7 @@ public class WindDirection : MonoBehaviour
         
     }
 
-    public void W_Direction()
+    public void ChangeDirection()
     {
 
         graden = Random.Range(1,360);

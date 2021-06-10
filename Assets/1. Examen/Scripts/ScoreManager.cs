@@ -9,6 +9,7 @@ public class ScoreManager : MonoBehaviour
     
     SoundManager soundManager;
     bool buttonOn;
+    int lastGoodPoints = 0;
     public int goodPoints = 0;
     public int badPoints = 0;
     public TMP_Text goodPointsText;
@@ -43,12 +44,20 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        NextQuestion();
+        if (Input.GetKeyDown(KeyCode.K)) goodPoints++;
+
+        if (lastGoodPoints != goodPoints)
+        {
+            NextQuestion();
+            lastGoodPoints = goodPoints;
+        }
         goodPointsText.text = goodPoints.ToString();
         badPointsText.text = badPoints.ToString();
     }
     void NextQuestion() 
     {
+        FindObjectOfType<PlayerLocation>()?.SetRandomPosition();
+        FindObjectOfType<AlarmManager>()?.GenerateAlarm();
         if (goodPoints >= 5)
         {
             //disable this question object UI
@@ -57,8 +66,11 @@ public class ScoreManager : MonoBehaviour
             shelterQuestion.SetActive(true);
             //disable alarmbellen buttons but keep appearance
             DisableButtons();
-            hideOuts.dialogueText.text = "Vragen compleet, door naar het volgende onderdeel! Klik opnieuw op de alarmknop en vind U locatie.";
-            soundManager.Play("Writing");
+            string newText = "Vragen compleet, door naar het volgende onderdeel! Klik opnieuw op de alarmknop en vind U locatie."; 
+            if(newText != hideOuts.dialogueText.text) soundManager.Play("Writing");
+            hideOuts.dialogueText.text = newText;
+            
+            FindObjectOfType<FindRoute>().CreateNewCorrectHideout();
         }
 
         else

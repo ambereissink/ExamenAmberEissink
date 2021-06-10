@@ -45,10 +45,10 @@ public class ButtonManager : MonoBehaviour
             soundManager.Play("Writing");
             scoreManager.goodPoints++;
             Debug.Log("These are the correct choices: " + scoreManager.goodPoints);
-            alarmManager.GenerateAlarm();
+            
             soundManager.Play("GoodSoundEffect");
             timer.timeValue = 180;
-            //alarmManager.playSound = false;
+            alarmManager.FullAudioReset();
             //werkt niet want dan speelt hij de eerste van de volgende niet af
         }
         else

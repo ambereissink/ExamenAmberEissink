@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class PlayerLocation : MonoBehaviour
 {
+    public List<Vector2> positionList = new List<Vector2>();
+
     public void OnEnable()
     {
-        Debug.Log(GetComponent<RectTransform>().localPosition);
+        SetRandomPosition();
+    }
+
+    public void SetRandomPosition()
+    {
+        int randomNum = Random.Range(0, positionList.Count);
+        transform.position = new Vector3(positionList[randomNum].x, -53, positionList[randomNum].y);
     }
 }

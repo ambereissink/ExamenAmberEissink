@@ -54,19 +54,30 @@ public class AlarmManager : MonoBehaviour
                 }
                 else //if not go to the next step in the array and reset the timer
                 {
-                    //PlaySound = false;
-                    arrayCounter++;
-                    counter = 0;
-                    timer = 0;
-                    if (arrayCounter >= 3) //if array counter is too big, disable sound
-                    {
-                        playSound = false;
-                        arrayCounter = 0;
-                    }
+                    ResetAudio();
                 }
             }
         }
     }
+
+    public void FullAudioReset()
+    {
+        arrayCounter = 3;
+        ResetAudio();
+    }
+
+    public void ResetAudio()
+    {
+        arrayCounter++;
+        counter = 0;
+        timer = 0;
+        if (arrayCounter >= 3) //if array counter is too big, disable sound
+        {
+            playSound = false;
+            arrayCounter = 0;
+        }
+    }
+
     public void GenerateAlarm()
     {
         //generates random numbers for the first and third spot, the middle staying the same
