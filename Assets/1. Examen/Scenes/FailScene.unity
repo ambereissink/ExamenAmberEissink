@@ -516,10 +516,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1539540060}
     m_Modifications:
+    - target: {fileID: 994809834459015848, guid: 7fecb99cad88d4445bf3e9b7b560fead,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 80.02997
+      objectReference: {fileID: 0}
     - target: {fileID: 994809834459015849, guid: 7fecb99cad88d4445bf3e9b7b560fead,
         type: 3}
       propertyPath: m_text
       value: Onvoldoende Kennis
+      objectReference: {fileID: 0}
+    - target: {fileID: 994809834483881511, guid: 7fecb99cad88d4445bf3e9b7b560fead,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 994809834504602012, guid: 7fecb99cad88d4445bf3e9b7b560fead,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -192
       objectReference: {fileID: 0}
     - target: {fileID: 994809834504602013, guid: 7fecb99cad88d4445bf3e9b7b560fead,
         type: 3}
@@ -586,11 +601,36 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 994809834700940477, guid: 7fecb99cad88d4445bf3e9b7b560fead,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -59
+      objectReference: {fileID: 0}
+    - target: {fileID: 994809835304270320, guid: 7fecb99cad88d4445bf3e9b7b560fead,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 212
+      objectReference: {fileID: 0}
+    - target: {fileID: 994809835651912250, guid: 7fecb99cad88d4445bf3e9b7b560fead,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 994809835704170258, guid: 7fecb99cad88d4445bf3e9b7b560fead,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -7
+      objectReference: {fileID: 0}
     - target: {fileID: 994809835704170259, guid: 7fecb99cad88d4445bf3e9b7b560fead,
         type: 3}
       propertyPath: m_text
       value: "Er zijn te veel fouten gemaakt. \nMeld dit aan uw trainer en maak de
         cursus overnieuw."
+      objectReference: {fileID: 0}
+    - target: {fileID: 994809835797133414, guid: 7fecb99cad88d4445bf3e9b7b560fead,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3719617766337160918, guid: 7fecb99cad88d4445bf3e9b7b560fead,
         type: 3}

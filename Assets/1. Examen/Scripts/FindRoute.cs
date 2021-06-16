@@ -16,7 +16,7 @@ public class FindRoute : MonoBehaviour
 
     List<Hideout> hideouts = new List<Hideout>();
 
-    public Hideout lazyCheck;
+    public Hideout quickCheck;
 
     public float distanceForAlarm = 340;
 
@@ -29,7 +29,7 @@ public class FindRoute : MonoBehaviour
 
     }
 
-    public void CreateNewCorrectHideout()
+    public void CreateNewCorrectHideout() //calls the closest hideout and generates new windirection
     {
         WD.ChangeDirection();
         SetClosest();
@@ -51,7 +51,7 @@ public class FindRoute : MonoBehaviour
             float distanceToAlarmcode = Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(alleAlarmColliders.GetChild(i).position.x, alleAlarmColliders.GetChild(i).position.z));
 
             //Debug.Log(alleAlarmColliders.GetChild(i).name + ": " + distanceToAlarmcode);
-            if (distanceToAlarmcode <= distanceForAlarm && alleAlarmColliders.GetChild(i).name.Contains(alarm.currentAlarm.ToString()))
+            if (distanceToAlarmcode <= distanceForAlarm && alleAlarmColliders.GetChild(i).name.Contains(alarm.currentAlarm.ToString())) //checks distance between player and alarmcollider in worldspace and checks current alarm
             {
                 isPlayerInRange = true;
             }
@@ -71,7 +71,7 @@ public class FindRoute : MonoBehaviour
         }
         else
         {
-            correctHideout = lazyCheck;
+            correctHideout = quickCheck;
         }
 
         Debug.Log("The Correct Hideout is :" + correctHideout);
@@ -100,9 +100,9 @@ public class FindRoute : MonoBehaviour
     }
 
 
-    public void CheckCorrect(Hideout h)
+    public void CheckCorrect(Hideout h) 
     {
-    
+     //checks if selected hideout is correct hideout
         
         if ((h as Hideout) == correctHideout)
         {

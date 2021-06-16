@@ -38,7 +38,7 @@ public class ButtonManager : MonoBehaviour
     }
     public void AlarmButton(GameObject other) //allows you to attach a gameobject called other
     {
-        if (alarmManager.currentAlarm != 0)
+        if (alarmManager.currentAlarm != 0) 
         {
             if (alarmManager.currentAlarm.ToString() == other.name || alarmManager.currentAlarm == 0)  //checks if current alarm matches the name of other gameobject
             {
@@ -49,8 +49,8 @@ public class ButtonManager : MonoBehaviour
 
                 soundManager.Play("GoodSoundEffect");
                 timer.timeValue = 180;
-                alarmManager.FullAudioReset();
-                //werkt niet want dan speelt hij de eerste van de volgende niet af
+                alarmManager.FullAudioReset(); //stops audio once completed
+               
             }
             else
             {

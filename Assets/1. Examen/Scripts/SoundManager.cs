@@ -12,7 +12,7 @@ public class SoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        foreach (Sound s in sounds)
+        foreach (Sound s in sounds) //adds options like volume and loop
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
@@ -24,7 +24,7 @@ public class SoundManager : MonoBehaviour
 
 
     // Update is called once per frame
-    public void Play(string name)
+    public void Play(string name) //function for playing clip
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)

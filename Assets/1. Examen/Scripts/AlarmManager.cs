@@ -23,7 +23,7 @@ public class AlarmManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Alarms[1] = 1;
+        Alarms[1] = 1;//middle alarm is always 1
         GenerateAlarm();
         //PlayAlarm();
     }
@@ -58,21 +58,21 @@ public class AlarmManager : MonoBehaviour
                 }
             }
         }
-        else if (playSound && currentAlarm == 0)
+        else if (playSound && currentAlarm == 0) //generates unique alarm that goes 4x10 tones
         {
             timer += Time.deltaTime;
-            if (timer >= resetTimer)
+            if (timer >= resetTimer) 
             {
                 counter++;
                 timer = 0;
                 FindObjectOfType<SoundManager>().Play("Horn");
-                if (counter >= 4)
+                if (counter >= 4) //if amount of horns played is bigger than 4, set the timer to a negative value
                 {
                     counter = 0;
                     timer -= resetTimer;
                     arrayCounter++;
                 }
-                if(arrayCounter >= 10)
+                if(arrayCounter >= 10) //if i played 10 times 4 horns, reset audio
                 {
                     FullAudioReset();
                 }
@@ -81,13 +81,13 @@ public class AlarmManager : MonoBehaviour
         }
     }
 
-    public void FullAudioReset()
+    public void FullAudioReset() //fully resets audio
     {
         arrayCounter = 3;
         ResetAudio();
     }
 
-    public void ResetAudio()
+    public void ResetAudio() //soft reset audio
     {
         arrayCounter++;
         counter = 0;
@@ -106,7 +106,7 @@ public class AlarmManager : MonoBehaviour
         System.Random rnd = new System.Random();
         
 
-        if (rnd.Next(0, 10) == 0)
+        if (rnd.Next(0, 10) == 0) //makes it so the unique alarm has the same chance of appearing as the randomly generated one
         {
             currentAlarm = 0;
         }

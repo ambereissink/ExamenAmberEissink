@@ -11,7 +11,7 @@ public class PlayerLocation : MonoBehaviour
         SetRandomPosition();
     }
 
-    public void SetRandomPosition()
+    public void SetRandomPosition() //sets random positions for player in inspector
     {
         int randomNum = Random.Range(0, positionList.Count);
         transform.position = new Vector3(positionList[randomNum].x, -53, positionList[randomNum].y);

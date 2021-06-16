@@ -22,13 +22,13 @@ public class Timer : MonoBehaviour
     }
     void Update()
     {
-        if (scoreManager.certificateOn == true || scoreManager.tutorialOn == false) 
+        if (scoreManager.certificateOn == true || scoreManager.tutorialOn == false)  //makes it so the timer doesn't go off when tutorial&certificaat is enabled
         { 
         CountDown();
         DisplayTime(timeValue);
         }
     }
-    void CountDown()
+    void CountDown() //the actual timer function
     {
         if (timeValue > 0)
         {
@@ -50,7 +50,7 @@ public class Timer : MonoBehaviour
             
         }
     }
-     void DisplayTime(float timeToDisplay)
+     void DisplayTime(float timeToDisplay) //function to display time
     {
         if (timeToDisplay < 0)
         {

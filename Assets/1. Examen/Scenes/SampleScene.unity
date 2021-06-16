@@ -7307,7 +7307,6 @@ GameObject:
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
   - component: {fileID: 963194231}
-  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7395,20 +7394,6 @@ MonoBehaviour:
   graden: 0
   textMesh: {fileID: 1055183154}
   windIndicator: {fileID: 1193242537}
---- !u!114 &963194230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a039aab5bc4295e4db65c4ed2a6cd975, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeValue: 180
-  timerText: {fileID: 617199883}
 --- !u!82 &963194231
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7899,6 +7884,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1018135080}
   m_CullTransparentMesh: 1
+--- !u!1 &1020123331
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1020123333}
+  - component: {fileID: 1020123332}
+  m_Layer: 0
+  m_Name: Timer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1020123332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020123331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a039aab5bc4295e4db65c4ed2a6cd975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeValue: 180
+  timerText: {fileID: 617199883}
+--- !u!4 &1020123333
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020123331}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 966.4027, y: 586.38837, z: 634.0489}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1026152103
 GameObject:
   m_ObjectHideFlags: 0
@@ -15217,7 +15247,7 @@ MonoBehaviour:
   WD: {fileID: 963194229}
   alleAlarmColliders: {fileID: 1433359450}
   correctHideout: {fileID: 0}
-  lazyCheck: {fileID: 921312616}
+  quickCheck: {fileID: 0}
   distanceForAlarm: 420
 --- !u!1 &1898645340
 GameObject:
@@ -19466,6 +19496,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 780694760}
     m_Modifications:
+    - target: {fileID: 994809834459015848, guid: 7fecb99cad88d4445bf3e9b7b560fead,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 994809834483881511, guid: 7fecb99cad88d4445bf3e9b7b560fead,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.029968262
+      objectReference: {fileID: 0}
+    - target: {fileID: 994809834504602012, guid: 7fecb99cad88d4445bf3e9b7b560fead,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -192.02997
+      objectReference: {fileID: 0}
     - target: {fileID: 994809834504602013, guid: 7fecb99cad88d4445bf3e9b7b560fead,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -19530,6 +19575,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 994809834700940477, guid: 7fecb99cad88d4445bf3e9b7b560fead,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -59.02997
+      objectReference: {fileID: 0}
+    - target: {fileID: 994809835304270320, guid: 7fecb99cad88d4445bf3e9b7b560fead,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 211.97003
+      objectReference: {fileID: 0}
+    - target: {fileID: 994809835651912250, guid: 7fecb99cad88d4445bf3e9b7b560fead,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.029968262
+      objectReference: {fileID: 0}
+    - target: {fileID: 994809835704170258, guid: 7fecb99cad88d4445bf3e9b7b560fead,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -7.0299683
+      objectReference: {fileID: 0}
+    - target: {fileID: 994809835797133414, guid: 7fecb99cad88d4445bf3e9b7b560fead,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.029968262
       objectReference: {fileID: 0}
     - target: {fileID: 3719617766337160918, guid: 7fecb99cad88d4445bf3e9b7b560fead,
         type: 3}
@@ -19663,7 +19733,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6483713643189855886
 RectTransform:
   m_ObjectHideFlags: 0

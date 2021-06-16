@@ -16,6 +16,7 @@ public class ScoreManager : MonoBehaviour
     public TMP_Text goodPointsText;
     public TMP_Text badPointsText;
     Hideout hideOuts;
+    //public Timer timer;
     Button[] alarmButtons;
     public GameObject certificatePanel;
     public GameObject alarmBellen;
@@ -31,7 +32,7 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         soundManager = FindObjectOfType<SoundManager>();
-        
+        //timer = FindObjectOfType<Timer>();
         hideOuts = FindObjectOfType<Hideout>();
         alarmButtons = alarmBellen.GetComponentsInChildren<Button>();
         alarmText = alarmBellen.GetComponentsInChildren<TMP_Text>();
@@ -41,21 +42,20 @@ public class ScoreManager : MonoBehaviour
         certificatePanel.SetActive(false);
         shelterQuestion.SetActive(false);
         alarmQuestion.SetActive(true);
-        //goodPoints = 30;
+        goodPoints = 0;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-       // if (Input.GetKeyDown(KeyCode.K)) goodPoints++;
 
-        if (lastGoodPoints != goodPoints)
+        if (lastGoodPoints != goodPoints) //check when points change and go to next question
         {
             NextQuestion();
             lastGoodPoints = goodPoints;
         }
-        if(lastBadPoints != badPoints)
+        if(lastBadPoints != badPoints) //check when points change and play sound effect
         {
             lastBadPoints = badPoints;
             soundManager.Play("BadSoundEffect");
@@ -63,12 +63,13 @@ public class ScoreManager : MonoBehaviour
         goodPointsText.text = goodPoints.ToString();
         badPointsText.text = badPoints.ToString();
     }
-    public void NextQuestion() 
+    public void NextQuestion() //handles all code for the next question
     {
-        FindObjectOfType<PlayerLocation>()?.SetRandomPosition();
-        FindObjectOfType<AlarmManager>()?.GenerateAlarm();
-        FindObjectOfType<AlarmManager>()?.FullAudioReset();
-        soundManager.Play("GoodSoundEffect");
+        //timer.timeValue = 180;
+        FindObjectOfType<PlayerLocation>()?.SetRandomPosition(); //sets random player pos
+        FindObjectOfType<AlarmManager>()?.GenerateAlarm(); //sets random alarm
+        FindObjectOfType<AlarmManager>()?.FullAudioReset(); //resets audioplayer
+        soundManager.Play("GoodSoundEffect"); 
         if (goodPoints >= 5)
         {
             
@@ -90,7 +91,7 @@ public class ScoreManager : MonoBehaviour
             buttonOn = true;
         }
          
-        if(goodPoints >= 15)
+        if(goodPoints >= 15) //mode for without number indication
         {
             
             foreach (TMP_Text textChild in alarmText)
@@ -105,10 +106,9 @@ public class ScoreManager : MonoBehaviour
         }
         if (goodPoints >= 30)
         {
-            //geef certificaat
+            //enable certificate
             certificatePanel.SetActive(true);
             certificateOn = true;
-            //stop timer
         }
         else
         {
@@ -122,7 +122,7 @@ public class ScoreManager : MonoBehaviour
     }
     void DisableButtons()
     {
-        foreach (Button child in alarmButtons)
+        foreach (Button child in alarmButtons) //makes all children uninteractable
         {
             child.interactable = buttonOn;
             buttonOn = false;

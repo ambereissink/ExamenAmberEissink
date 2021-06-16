@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
-//in this script we are going to assign the hideout gameobjects to the path we still need to write
+
 
 public class Hideout : MonoBehaviour
 {
